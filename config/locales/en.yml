@@ -11,3 +11,8 @@ en:
   categories: " Categories"
   words: " Words"
   bt_signup: "Sign up Now"
+  create_user: "Create my account"
+  confirm: "Confirmation"
+  contains_errors: "The form contains "
+  errors_msg: "errors"
+  user_not_found: "User not found"
