@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :remember_token
+  mount_uploader :avatar, PictureUploader
 
   has_many :lessons, dependent: :destroy
   has_many :activities, dependent: :destroy
