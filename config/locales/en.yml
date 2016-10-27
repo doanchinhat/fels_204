@@ -16,3 +16,8 @@ en:
   contains_errors: "The form contains "
   errors_msg: "errors"
   user_not_found: "User not found"
+  invalid: "Invalid email/password combination"
+  profile: "Profile"
+  setting: "Settings"
+  account: "Account"
+  remember: "Remember me on this computer"
