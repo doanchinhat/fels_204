@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   before_action :find_category, only: :destroy
-  before_action :verify_admin, only: :destroy
+  before_action :verify_admin
   before_action :signed_in_user, only: :index
 
   def index
