@@ -36,4 +36,15 @@ module SessionsHelper
     cookies.delete :user_id
     cookies.delete :remember_token
   end
+
+  def signed_in_user
+    unless signed_in?
+      flash[:danger] = t :pls_sign_in
+      redirect_to root_url
+    end
+  end
+
+  def verify_admin
+    redirect_to root_url unless current_user.is_admin?
+  end
 end
