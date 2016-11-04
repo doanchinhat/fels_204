@@ -30,4 +30,5 @@ en:
   del_cate_suc: "Delete Category Successfully"
   del_cate_err: "Cant delete this category"
   category_not_found: "Category not found !"
-  pls_sign_in: "Please Sign In"
+  bt_start: "Start Lesson"
+  pls_sign_in: "Please sign in !"

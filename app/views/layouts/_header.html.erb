@@ -10,7 +10,7 @@
             <li><%= link_to t(:categories), admin_categories_path, class:
               "glyphicon glyphicon-folder-open" %></li>
           <% else %>
-            <li><%= link_to t(:categories), "#", class:
+            <li><%= link_to t(:categories), categories_path, class:
               "glyphicon glyphicon-folder-open" %></li>
           <% end %>
           <li><%= link_to t(:words), "#", class:
