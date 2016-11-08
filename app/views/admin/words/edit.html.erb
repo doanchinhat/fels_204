@@ -1,0 +1,14 @@
+<section id="service" class = "admin-section">
+<div class="container">
+<div class="row" id="word">
+  <div class="col-lg-12">
+    <div class="col-lg-offset-2 col-md-8">
+      <h2><b><%= t :create_word %></b></h2>
+      <%= form_for [:admin, @category, @word] do |f| %>
+        <%= render "word_form", f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</section>

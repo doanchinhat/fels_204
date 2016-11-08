@@ -1,10 +1,68 @@
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
+<div class = "row">
+  <aside class = "col-md-4">
+    <section class = "user_info">
       <h1>
-        <%= image_tag @user.avatar %>
+        <%= image_tag @user.avatar.url %>
         <%= @user.name %>
       </h1>
     </section>
+    <section class = "stats">
+      <%= render "shared/stats" %>
+    </section>
+    <div class = "follow_form">
+      <%= render "follow_form" if signed_in? %>
+    </div>
   </aside>
+  <div class = "col-md-6">
+    <h1><%= t :activities %></h1>
+     <ul>
+     <% if current_user.is_admin? %>
+      <% Activity.all.desc_date.each do |activity| %>
+          <li>
+            <p class="timeline-date"></p>
+              <div class="timeline-content">
+              <h3></h3>
+            <p><%= activity.load_activity %></p>
+            <hr>
+          </li>
+        <% end %>
+     <% else %>
+      <% if current_user? @user %>
+        <% @user.activities.desc_date.each do |activity| %>
+          <li>
+            <p class="timeline-date"></p>
+            <div class="timeline-content">
+              <h3></h3>
+              <p><%= activity.load_activity %></p>
+              <hr>
+            </li>
+        <% end %>
+        <% @user.following.each do |user| %>
+          <% user.activities.desc_date.each do |activity| %>
+            <li>
+              <p class="timeline-date"></p>
+                <div class="timeline-content">
+                <h3></h3>
+              <p><%= activity.load_activity %></p>
+              <hr>
+            </li>
+          <% end %>
+        <% end %>
+      <% else %>
+        <% @user.activities.desc_date.each do |activity| %>
+          <li>
+            <p class="timeline-date"></p>
+              <div class="timeline-content">
+              <h3></h3>
+            <p><%= activity.load_activity %></p>
+            <hr>
+          </li>
+        <% end %>
+      <% end %>
+    <% end %>
+    </ul>
+  </div>
+  <div class="col-md-2">
+  </div>
 </div>
+

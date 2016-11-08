@@ -78,10 +78,10 @@ ActiveRecord::Schema.define(version: 20161024040342) do
 
   create_table "words", force: :cascade do |t|
     t.text     "content"
-    t.integer  "categoty_id"
+    t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["categoty_id"], name: "index_words_on_categoty_id"
+    t.index ["category_id"], name: "index_words_on_category_id"
   end
 
 end

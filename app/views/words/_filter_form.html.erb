@@ -1,0 +1,10 @@
+<div class= "fix-width">
+  <% Settings.filter_words.each do |key, value| %>
+    <%= label_tag value, class: "radio-inline fix-width" do %>
+      <%= radio_button_tag :condition, value,
+      checked = params[:condition] == value || params[:condition].blank?,
+        class: "fix-width" %>
+      <%= value.titleize %>
+    <% end %>
+  <% end %>
+</div>

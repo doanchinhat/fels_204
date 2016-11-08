@@ -3,9 +3,10 @@
     <%= link_to t(:logo), root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to t(:home), root_path, class:
-          "glyphicon glyphicon-home" %></li>
+
         <% if signed_in? %>
+          <li><%= link_to t(:home), @current_user, class:
+            "glyphicon glyphicon-home" %></li>
           <%if current_user.is_admin? %>
             <li><%= link_to t(:categories), admin_categories_path, class:
               "glyphicon glyphicon-folder-open" %></li>
@@ -13,10 +14,20 @@
             <li><%= link_to t(:categories), categories_path, class:
               "glyphicon glyphicon-folder-open" %></li>
           <% end %>
-          <li><%= link_to t(:words), "#", class:
-            "glyphicon glyphicon-list-alt" %></li>
-          <li><%= link_to t(:users), "#", class:
-            "glyphicon glyphicon-user" %></li>
+          <%if current_user.is_admin? %>
+            <li><%= link_to t(:words), admin_words_path, class:
+              "glyphicon glyphicon-list-alt" %></li>
+          <% else %>
+            <li><%= link_to t(:words), words_path, class:
+              "glyphicon glyphicon-list-alt" %></li>
+          <% end %>
+          <%if current_user.is_admin? %>
+            <li><%= link_to t(:users), admin_users_path, class:
+              "glyphicon glyphicon-user" %></li>
+          <% else %>
+            <li><%= link_to t(:users), users_path, class:
+              "glyphicon glyphicon-user" %></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <%= t :account %>
@@ -32,6 +43,8 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to t(:home), root_path, class:
+          "glyphicon glyphicon-home" %></li>
           <li><%= link_to t(:signin), signin_path, class:
             "glyphicon glyphicon-log-in" %></li>
           <li><%= link_to t(:signup), signup_path, class:

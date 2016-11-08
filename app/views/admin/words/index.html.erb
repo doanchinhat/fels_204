@@ -1,0 +1,46 @@
+<section id="service" class = "admin-section">
+  <div class="container">
+    <div class="row">
+    <%= link_to t(:bt_new), new_admin_word_path, class:
+      "glyphicon glyphicon-plus btn btn-lg btn-primary" %>
+      <div class="responsive-table">
+        <table id="table_list"
+          class="table table-striped table-bordered" cellspacing="0">
+          <thead >
+            <tr>
+              <th class = "text-center"><%= t :word %></th>
+              <th class = "text-center"><%= t :meaning %></th>
+              <th class = "text-center"><%= t :category %></th>
+              <th class = "text-center"><%= t :activities %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @words.each do |word| %>
+            <tr>
+              <td class = "text-center">
+                <%= word.content %>
+              </td>
+              <td class = "text-center">
+                <% word.answers.each do |answer| %>
+                  <%= answer.content if answer.is_correct %>
+                <% end %>
+              </td>
+              <td class = "text-center">
+                <%= word.category.name %>
+              </td>
+              <td class = "text-center">
+                <%= link_to t(:bt_edit), edit_admin_word_path(word), class:
+                  "glyphicon glyphicon-edit btn btn-lg btn-primary" %>
+                <%= link_to t(:bt_del), admin_word_path(word), method: :delete,
+                  remote: :true, data: {confirm: t(:confirm)}, class:
+                  "glyphicon glyphicon-remove btn btn-lg btn-primary" %>
+              </td>
+            </tr>
+            <%end%>
+          </tbody>
+        </table>
+        <%= will_paginate %>
+      </div>
+    </div>
+  </div>
+</section>

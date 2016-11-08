@@ -1,2 +1,12 @@
 check_remember: 1
 number_pagin: 10
+number_question: 10
+number_answered: 0
+number_hours: 0
+number_mins: 0
+number_secs: 0
+number_answer: 3
+filter_words:
+  learned_correct: "learned_correct"
+  not_learned: "not_learned"
+  all: "all"

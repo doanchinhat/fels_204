@@ -1,0 +1,22 @@
+<li>
+  <hr>
+  <strong><%= result.word.content %></strong>
+  <ul>
+    <% result.word.answers.alphabet.each do |answer| %>
+      <li>
+        <% if answer.is_correct %>
+          <span class = "label label-success">
+        <% else %>
+          <% if answer==result.answer %>
+            <span class = "label label-danger">
+          <%end%>
+        <%end%>
+        <%= radio_button_tag result.id, answer.id,
+          result.answer_id.to_s == answer.id.to_s, disabled: true, class: "radio-button" %>
+        <%= answer.content %>
+          </span>
+          </span>
+      </li>
+    <% end %>
+  </ul>
+</li>

@@ -1,0 +1,18 @@
+  <div class="container lesson">
+    <h1><%= @lesson.category.name %></h1>
+      <h2>
+      <strong><%= t :result %></strong>
+    <span id = "number_answered"><%= @lesson.point %></span>/
+    <span id = "number_question"><%= Settings.number_question %></span>
+  </h2>
+    <div>
+      <%= form_for [@lesson.category, @lesson] do |f|%>
+        <ol>
+        <div id = "show_answers">
+        <%= render @results %>
+        </div>
+        </ol>
+      <% end %>
+    </div>
+    </div>
+</div>

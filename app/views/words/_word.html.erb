@@ -1,0 +1,6 @@
+<tr>
+  <td><%= word.content %><td>
+  <% word.answers.each do |answer| %>
+    <%= answer.content if answer.is_correct %>
+  <% end %>
+</tr>

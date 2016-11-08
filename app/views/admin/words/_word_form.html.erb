@@ -1,0 +1,16 @@
+<%= render "shared/error_messages", object: f.object %>
+<div >
+  <%= f.label t :category %>
+  <%= f.collection_select :category_id, @categories,:id,:name, include_blank: false, class: "form-control" %>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: "form-control" %>
+<div id ="answers_field">
+  <%= f.fields_for :answers do |answer| %>
+    <%= render "answer_fields", f: answer %>
+  <% end %>
+  <div id ="answer_field"></div>
+  <div class="add_fields" id="add_answer">
+    <%= link_to_add_fields t(:add_answer), f, :answers %>
+  </div>
+</div>
+<%= f.submit t(:submit), class: "btn btn-primary" %>

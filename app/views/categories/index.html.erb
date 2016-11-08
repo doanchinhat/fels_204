@@ -17,9 +17,10 @@
                   <%= category.name %>
                 </td>
                 <td class = "text-center">
-                  <%= link_to content_tag(:span, t(:bt_start), class:
-                    "span-font"), "#", class:
-                    "glyphicon glyphicon-tasks btn btn-lg btn-primary" %>
+                  <%= form_for [category, @lesson] do |f| %>
+                    <%= f.hidden_field :category_id, value: category.id %>
+                    <%= f.submit t(:bt_start), class: "btn btn-primary bt-resize" %>
+                  <%end%>
                 </td>
               </tr>
             <% end %>

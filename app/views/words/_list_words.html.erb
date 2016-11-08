@@ -1,0 +1,10 @@
+<div class="responsive-table words_record">
+  <table class="table table-striped table-bordered" cellspacing="0">
+    <tr class="info">
+      <th><%= t :words %></th>
+      <th><%= t :meaning %></th>
+    </tr>
+    <%= render @words %>
+  </table>
+  <%= will_paginate %>
+</div>

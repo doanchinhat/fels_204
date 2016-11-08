@@ -1,0 +1,22 @@
+<div class="form-group choice_question" id="<%= "answer_field_#{f.index}" %>">
+    <%= f.label t :answer %>
+  <div class="col-md-12">
+    <div class="col-md-6 ">
+      <%= f.text_area :content, label: false,
+        placeholder: t(:enter_answer),
+        class: "form-control text_area_remove" %>
+    </div>
+    <div class ="check">
+    <div class="col-md-1"  >
+      <%= f.label :is_correct %>
+    </div>
+    <div class="col-md-1">
+      <%= f.check_box :is_correct, class: "answers_checkbox" %>
+    </div>
+    </div>
+    <div class="col-md-1">
+      <%= link_to_remove_fields t(:remove), f %>
+    </div>
+  </div>
+</div>
+

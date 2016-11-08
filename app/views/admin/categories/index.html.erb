@@ -1,6 +1,8 @@
 <section id="service" class = "admin-section">
   <div class="container">
     <div class="row">
+      <%= link_to t(:bt_new), new_admin_category_path, class:
+        "glyphicon glyphicon-plus btn btn-lg btn-primary" %>
       <div class="responsive-table">
         <table id="table_list"
           class="table table-striped table-bordered" cellspacing="0">
@@ -17,10 +19,10 @@
                   <%= category.name %>
                 </td>
                 <td class = "text-center">
-                  <%= link_to t(:bt_edit), "#", class:
+                  <%= link_to t(:bt_edit), edit_admin_category_path(category), class:
                     "glyphicon glyphicon-edit btn btn-lg btn-primary" %>
                   <%= link_to t(:bt_del), admin_category_path(category), method:
-                    :delete, remote: true, data: {confirm: t(:confirm)}, class:
+                    :delete,remote: true, data: {confirm: t(:confirm)}, class:
                     "glyphicon glyphicon-remove btn btn-lg btn-primary" %>
                 </td>
               </tr>

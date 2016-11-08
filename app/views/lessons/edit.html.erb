@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="fixed">
+  <input type="hidden" id="refresh" value="no">
+  <h3>
+    <%= t :time_remain %>
+  </h3>
+  <div id="clockdiv">
+    <div>
+      <span class="hours"></span>
+      <div class="smalltext"><%= t :hours %></div>
+    </div>
+    <div>
+      <span class="mins"></span>
+      <div class="smalltext"><%= t :mins %></div>
+    </div>
+    <div>
+      <span class="secs"></span>
+      <div class="smalltext"><%= t :secs %></div>
+    </div>
+  </div>
+  <h3>
+    <%= t :progress %>
+  </h3>
+  <h2>
+    <span id = "number_answered"><%= Settings.number_answered %></span>/
+    <span id = "number_question"><%= Settings.number_question %></span>
+  </h2>
+  </div>
+  <div class="container lesson">
+    <h1><%= @lesson.category.name %></h1>
+    <div>
+      <%= form_for [@lesson.category, @lesson],html: {id: "form_lesson"} do |f|%>
+        <ol>
+          <%= f.fields_for :results, wrapper: false do |result_form| %>
+            <%= render "answer_form", form: result_form %>
+          <% end %>
+        </ol>
+        <center>
+          <%= f.submit t(:lesson_finish), class: "btn btn-primary bt-resize",
+            data: {confirm: t(:lesson_finish_status)},
+            html: {id: "summit_lesson"} %>
+        </center>
+      <% end %>
+    </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="stats">
+  <%= link_to user_following_index_path @user do %>
+    <strong id="following">
+      <%= @user.following.count %>
+    </strong>
+    <%= t :following %>
+  <% end %>
+  <%= link_to user_followers_path @user do%>
+    <strong id="followers">
+      <%= @user.followers.count %>
+    </strong>
+    <%= t :followers %>
+  <% end %>
+</div>
